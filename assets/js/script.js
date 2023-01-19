@@ -49,8 +49,8 @@ const questions = [
 var startButton = document.getElementById('start-btn');
 var startScreen = document.getElementById('start-screen');
 var questionsContainer = document.getElementById('question-container');
-var questionEl = document.getElementById('question');
-var answerButton = document.getElementById('answer-button');
+var questionsEl = document.getElementById('question');
+var answerButton = document.getElementById('choices');
 var endScreen = document.getElementById('end-screen');
 var scoreBonus = 10;
 
@@ -82,7 +82,7 @@ function startQuiz() {
     console.log("started")
     startButton.remove()
     startScreen.remove()
-    //randomQuestions = questions.sort(() => Math.random() -.5)
+    randomQuestions = questions.sort(() => Math.random() -.5)
     questionsContainer.classList.remove('hide');
     generateQuestion();
     timer();
@@ -99,8 +99,8 @@ function startQuiz() {
 // }
 
 function generateQuestion() {
-    if (setQuestions < 5) {
-        nextQuestion(questions[setQuestions]);
+    if (setquestions < 5) {
+        nextQuestion(questions[setquestions]);
         localStorage.setItem('mostRecentScore',score)
     } else {
         endQuiz()
@@ -130,10 +130,12 @@ function nextQuestion(question) {
     document.querySelector("#btn2").textContent = "2. " + question.answers[1].text
     document.querySelector("#btn3").textContent = "3. " + question.answers[2].text
     document.querySelector("#btn4").textContent = "4. " + question.answers[3].text
+
+
     var score = "1";
     //event listeners
-    document.querySelector(".btn").addEventListener("click", function(){
-        setQuestions++;
+    document.querySelector('.btn').addEventListener("click", function(){
+        setquestions++;
         console.log(question.answers[0].text)
         
         // if (question[1].answer[1].correct) score += 1
@@ -147,6 +149,46 @@ function nextQuestion(question) {
 
         generateQuestion();
     })
+
+    document.querySelector('.btn2').addEventListener("click", function(){
+            console.log(question.answers[1].text)
+            
+            if (question.answers[1].correct) {
+                incrementScore(scoreBonus);
+                console.log(incrementScore)
+                success()
+            } else {
+                failure()
+            }
+            startQuiz()
+           
+        }) 
+
+     document.querySelector('.btn3').addEventListener("click", function(){
+            console.log(question.answers[2].text)
+            if (question.answers[2].correct) {
+                incrementScore(scoreBonus);
+                console.log(incrementScore)
+                success()
+            } else {
+                failure()
+            }
+            startQuiz()
+           
+        }) 
+
+    document.querySelector('.btn4').addEventListener("click", function(){
+            console.log(question.answers[3].text)
+            if (question.answers[3].correct) {
+                incrementScore(scoreBonus);
+                console.log(incrementScore)
+                success()
+            } else {
+                failure()
+            }
+            startQuiz()
+        
+        }) 
 
 }
 
@@ -171,43 +213,43 @@ function failure () {
     answer.textContent = "Wrong!"
 }
 
-// // high scores
+// high scores
 
-// const initials = document.getElementById("intials");
-// const submitButton = document.getElementById('submit')
-// const finalScore = document.querySelector('finalScore');
-// const mostRecentScore = localStorage.getItem('mostRecentScore');
+ const initials = document.getElementById("intials");
+ const submitButton = document.getElementById('submit')
+ const finalScore = document.querySelector('finalScore');
+ const mostRecentScore = localStorage.getItem('mostRecentScore');
 
-// const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+ const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
-// const maxHigh = 5;
+ const maxHigh = 5;
 
-// finalScore.innerText= mostRecentScore
+ finalScore.innerText= mostRecentScore
 
-// initials.addEventListener("keyup", () => {
-//     console.log(initials.value);
-//     submitButton.disabled = !initials.value;
-// });
+ initials.addEventListener("keyup", () => {
+     console.log(initials.value);
+     submitButton.disabled = !initials.value;
+ });
 
-// saveHighScore = e => {
-//     console.log("clicked submit button");
-//     e.preventDefault();
+highScores = e => {
+     console.log("clicked submit button");
+     e.preventDefault();
 
-//     const score = {
-//         score: Math.floor(Math.random() * 100),
-//         name: initials.value
-//     }
-//     highScores.push(score);
+     const score = {
+         score: Math.floor(Math.random() * 100),
+         name: initials.value
+     }
+     highScores.push(score);
 
-//     highScores.sort( (a,b) => b.score - a.score);
+     highScores.sort( (a,b) => b.score - a.score);
 
-//     highScores.splice(5);
+     highScores.splice(5);
 
-//     localStorage.setItem('highScores', JSON.stringify(highScores));
+     localStorage.setItem('highScores', JSON.stringify(highScores));
 
-//     window.location.assign("/");
+     window.location.assign("/");
 
-// };
+ };
 
 
 
