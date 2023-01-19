@@ -7,7 +7,7 @@ I was then tasked to apply javascript to the timed quiz. The application is supp
 questions and provide possible answers to the questions. When the answer is wrong time is subtracted
 from remaing time. Try it out for yourself!
 
-Link: 
+Link: Your site is live at https://brbates86.github.io/Timed-Quiz-App/
 
 
 
