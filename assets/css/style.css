@@ -16,3 +16,23 @@ body {
     width: 100vw;
     height: 100vh;
 }
+
+.start-screen {
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper, .hs-wrapper  {
+    max-width: 33%;
+    justify-content: center;
+    text-align: center;
+    margin: 200px auto;
+}
+
+#choices {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: flex-start;
+    gap: 10px;
+}
