@@ -8,3 +8,9 @@ questions and provide possible answers to the questions. When the answer is wron
 from remaing time. Try it out for yourself!
 
 Link: 
+
+
+
+
+Here’s a screenshpt of the application:
+<img width="1440" alt="Screenshot 2023-01-19 at 1 06 25 PM" src="https://user-images.githubusercontent.com/110508944/213537097-714edcae-0ef0-4352-8af1-dbca1dde8890.png">
