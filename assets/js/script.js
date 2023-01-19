@@ -130,4 +130,93 @@ function nextQuestion(question) {
     document.querySelector("#btn2").textContent = "2. " + question.answers[1].text
     document.querySelector("#btn3").textContent = "3. " + question.answers[2].text
     document.querySelector("#btn4").textContent = "4. " + question.answers[3].text
-    
+    var score = "1";
+    //event listeners
+    document.querySelector(".btn").addEventListener("click", function(){
+        setQuestions++;
+        console.log(question.answers[0].text)
+        
+        // if (question[1].answer[1].correct) score += 1
+        if (question.answers[0].correct) {                
+            incrementScore(scoreBonus);
+            console.log(incrementScore)
+            success()
+        } else {
+            failure()
+        }
+
+        generateQuestion();
+    })
+
+}
+
+incrementScore = num => {
+    score += num; 
+}
+
+// Create a rightOrWrong paragraph element
+
+var answer = document.createElement("p")
+document.querySelector("#choices").appendChild(answer)
+
+// Change the text content of this paragraph element inside the success and failure functions
+
+
+ function success () {
+    answer.textContent = "Correct!"
+
+}
+
+function failure () {
+    answer.textContent = "Wrong!"
+}
+
+// // high scores
+
+// const initials = document.getElementById("intials");
+// const submitButton = document.getElementById('submit')
+// const finalScore = document.querySelector('finalScore');
+// const mostRecentScore = localStorage.getItem('mostRecentScore');
+
+// const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+// const maxHigh = 5;
+
+// finalScore.innerText= mostRecentScore
+
+// initials.addEventListener("keyup", () => {
+//     console.log(initials.value);
+//     submitButton.disabled = !initials.value;
+// });
+
+// saveHighScore = e => {
+//     console.log("clicked submit button");
+//     e.preventDefault();
+
+//     const score = {
+//         score: Math.floor(Math.random() * 100),
+//         name: initials.value
+//     }
+//     highScores.push(score);
+
+//     highScores.sort( (a,b) => b.score - a.score);
+
+//     highScores.splice(5);
+
+//     localStorage.setItem('highScores', JSON.stringify(highScores));
+
+//     window.location.assign("/");
+
+// };
+
+
+
+
+// end quiz 
+function endQuiz () {
+    startButton.remove()
+    startScreen.remove()
+    questionsContainer.remove()
+    endScreen.classList.remove('hide');
+    clearInterval(timer);
+}
