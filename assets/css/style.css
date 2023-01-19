@@ -36,3 +36,96 @@ body {
     align-content: flex-start;
     gap: 10px;
 }
+
+.h1 {
+    font-size: 32px;
+    text-align: center;
+}
+
+#p {
+    font-size: 18px;
+    margin: 10px auto;
+    padding: auto;
+    font-style: italic;
+    color: lightgrey
+}
+
+#start-btn {
+    background-color: var(--darkpurple);
+    color: white;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 12px;
+}
+
+.back-btn, .score-btn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start
+}
+
+#btn1, #btn2, #btn3, #btn4, .submit, .back-btn, .score-btn {
+    background-color: var(--darkpurple);
+    color: white;
+    padding: 10px 50px;
+    font-size: 16px;
+    border-radius: 12px;
+    text-align: left;
+    align-content: flex-start;
+}
+
+#btn1:hover, #btn2:hover, #btn3:hover, #btn4:hover, .start-btn:hover, .submit:hover, .back-btn:hover, .score-btn:hover {
+    background-color:var(--lightpurple);
+}
+
+a {
+    color: var(--lightpurple);
+    text-decoration: none;
+}
+
+
+
+.hide {
+    display: none;
+}
+
+.scores {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    
+}
+
+.timer {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+
+#end-screen, .hs-screen {
+    text-align: left;
+    font-size: 18;
+}
+
+input {
+    border-radius: 1px;
+    border: solid;
+}
+
+#highScoreList {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 4rem;
+}
+
+.high-score {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.form {
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
+    margin: 200px auto;
+}
